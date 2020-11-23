@@ -25,10 +25,12 @@ namespace WarpItemControlLib {
 			case ItemID.IceMirror:
 			case ItemID.RecallPotion:
 				if( this.player.velocity.X != 0 || this.player.velocity.Y != 0 ) {
-					Timers.SetTimer( "WICWarpMoveInterrupt", 2, false, () => {
-						Main.NewText( "Warping interrupted by movement.", Color.Yellow );
-						return false;
-					} );
+					if( this.player.whoAmI == Main.myPlayer ) {
+						Timers.SetTimer( "WICWarpMoveInterrupt", 2, false, () => {
+							Main.NewText( "Warping interrupted by movement.", Color.Yellow );
+							return false;
+						} );
+					}
 
 					this.EndWarp();
 				}
