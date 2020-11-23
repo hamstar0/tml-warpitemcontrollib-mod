@@ -1,7 +1,8 @@
 v1
 -	Implement API for blocking warping arbitrarily
--	Implement warp blocking while moving
 
+
+-	Implement warp blocking while moving
 -	Implement setting for afflicting harm when warping during chaos state
 -	Implement setting for blocking warping during chaos state
 -	Implement setting for delaying warp

@@ -39,5 +39,9 @@ namespace WarpItemControlLib {
 		[Range( 0, 10000 )]
 		[DefaultValue( 100 )]
 		public int ChaosStateHurtsFromWarpItems { get; set; } = 100;
+
+
+		[DefaultValue( true )]
+		public bool WarpWarmupInterruptedByMovement { get; set; } = true;
 	}
 }
