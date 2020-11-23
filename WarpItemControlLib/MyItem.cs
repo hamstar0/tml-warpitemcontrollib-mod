@@ -35,7 +35,7 @@ namespace WarpItemControlLib {
 				var myplayer = player.GetModPlayer<WICPlayer>();
 				if( !myplayer.IsWarpEnabled ) {
 					if( player.whoAmI == Main.myPlayer ) {
-						WICLibMod.ShowAlert( "Warp items disabled." );
+						WICLibMod.ShowAlert( myplayer.WarpDeniedMessage );
 					}
 					return false;
 				}
