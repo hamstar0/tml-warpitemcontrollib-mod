@@ -1,4 +1,7 @@
+using Microsoft.Xna.Framework;
+using Terraria;
 using Terraria.ModLoader;
+using HamstarHelpers.Services.Timers;
 
 
 namespace WarpItemControlLib {
@@ -10,6 +13,17 @@ namespace WarpItemControlLib {
 		////////////////
 
 		public static WICLibMod Instance { get; private set; }
+
+
+
+		////////////////
+
+		internal static void ShowAlert( string msg ) {
+			Timers.SetTimer( "WICAlert_"+msg, 2, false, () => {
+				Main.NewText( msg, Color.Yellow );
+				return false;
+			} );
+		}
 
 
 

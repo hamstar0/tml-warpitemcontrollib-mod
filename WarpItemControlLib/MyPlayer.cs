@@ -6,6 +6,11 @@ using HamstarHelpers.Helpers.Debug;
 
 namespace WarpItemControlLib {
 	partial class WICPlayer : ModPlayer {
+		public bool IsWarpEnabled { get; internal set; } = false;
+
+
+		////////////////
+
 		private float CustomWarpPercent = 0f;
 		private bool IsEndingCustomWarp = false;
 

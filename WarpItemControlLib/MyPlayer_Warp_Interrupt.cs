@@ -1,10 +1,8 @@
 ﻿using System;
-using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using HamstarHelpers.Helpers.Debug;
-using HamstarHelpers.Services.Timers;
 
 
 namespace WarpItemControlLib {
@@ -26,10 +24,7 @@ namespace WarpItemControlLib {
 			case ItemID.RecallPotion:
 				if( this.player.velocity.X != 0 || this.player.velocity.Y != 0 ) {
 					if( this.player.whoAmI == Main.myPlayer ) {
-						Timers.SetTimer( "WICWarpMoveInterrupt", 2, false, () => {
-							Main.NewText( "Warping interrupted by movement.", Color.Yellow );
-							return false;
-						} );
+						WICLibMod.ShowAlert( "Warping interrupted by movement." );
 					}
 
 					this.EndWarp();

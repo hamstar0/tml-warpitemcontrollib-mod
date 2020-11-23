@@ -18,13 +18,28 @@ namespace WarpItemControlLib {
 			case ItemID.IceMirror:
 			case ItemID.RecallPotion:
 				if( config.Get<bool>( nameof(config.WarpItemsBlocked) ) ) {
+					if( player.whoAmI == Main.myPlayer ) {
+						WICLibMod.ShowAlert( "Warp items disabled by config." );
+					}
 					return false;
 				}
 				if( config.Get<bool>( nameof(config.ChaosStateBlocksWarpItems) ) ) {
 					if( player.HasBuff(BuffID.ChaosState) ) {
+						if( player.whoAmI == Main.myPlayer ) {
+							WICLibMod.ShowAlert( "Warp items disabled by Chaos State." );
+						}
 						return false;
 					}
 				}
+
+				var myplayer = player.GetModPlayer<WICPlayer>();
+				if( !myplayer.IsWarpEnabled ) {
+					if( player.whoAmI == Main.myPlayer ) {
+						WICLibMod.ShowAlert( "Warp items disabled." );
+					}
+					return false;
+				}
+
 				break;
 			}
 			return base.CanUseItem( item, player );
