@@ -8,7 +8,9 @@ using HamstarHelpers.Helpers.Debug;
 namespace WarpItemControlLib {
 	partial class WICPlayer : ModPlayer {
 		private void RunCustomWarpDecisionsForItem( Item anyOrNoItem ) {
-			if( WICLibConfig.Instance.WarpItemBaseWarmupTickDuration == 0 ) {
+			var config = WICLibConfig.Instance;
+
+			if( config.Get<int>( nameof(config.WarpItemBaseWarmupTickDuration) ) == 0 ) {
 				return;
 			}
 
@@ -53,9 +55,9 @@ namespace WarpItemControlLib {
 		private bool RunCustomWarp( Item warpItem ) {
 			var config = WICLibConfig.Instance;
 
-			float unit = 1f / config.WarpItemBaseWarmupTickDuration;
+			float unit = 1f / (float)config.Get<int>( nameof(config.WarpItemBaseWarmupTickDuration) );
 			if( warpItem.type == ItemID.RecallPotion ) {
-				unit = 1f / config.RecallPotionBaseWarmupTickDuration;
+				unit = 1f / (float)config.Get<int>( nameof(config.RecallPotionBaseWarmupTickDuration) );
 			}
 
 			this.CustomWarpPercent += unit;

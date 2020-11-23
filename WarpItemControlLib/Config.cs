@@ -23,6 +23,9 @@ namespace WarpItemControlLib {
 
 		////////////////
 
+		public bool WarpItemsBlocked { get; set; } = false;
+
+
 		[Range( 0f, 60f * 60f )]
 		[DefaultValue( (int)( 3f * 60f ) )]
 		[CustomModConfigItem( typeof( MyFloatInputElement ) )]
