@@ -1,9 +1,10 @@
 v1
--	Implement setting for delaying warp
 -	Implement API for blocking warping arbitrarily
--	Implement setting for blocking warping during chaos state
--	Implement setting for afflicting harm when warping during chaos state
+-	Implement warp blocking while moving
 
+-	Implement setting for afflicting harm when warping during chaos state
+-	Implement setting for blocking warping during chaos state
+-	Implement setting for delaying warp
 -	Import warp blocking behavior from LiF mod
 -	Setup project
 
