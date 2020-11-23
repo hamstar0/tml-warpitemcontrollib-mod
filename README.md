@@ -1,5 +1,9 @@
-# Cursed Brambles
+# Warp Item Control Lib
 
-Cursed brambles now generate around you in your wake, while underground. They also generate in the wake of bosses.
+Warp Item Control Lib allows controlling the use of player warp items (Magic Mirrors, Cellphones, Recall Potions, etc.), including:
 
-On contact, cursed brambles slow your movement like cobwebs, but also inflict venom and are not affected by attacks. They will either dissipate on their own in time, or require manual pickaxing to be removed.
+ - Adjusting time until warp items activate.
+ - Disabling warp items completely, or on demand (via. API).
+ - Using a debuff (Chaos State) to limit or punish overuse of warp items.
+
+Configurable.
