@@ -67,6 +67,11 @@ namespace WarpItemControlLib {
 						return false;
 					}
 				}
+
+				int duration = config.Get<int>( nameof(config.ChaosStateTickDurationFromWarp) );
+				if( duration > 0 ) {
+					player.AddBuff( BuffID.ChaosState, duration );
+				}
 				break;
 			}
 			return base.UseItem( item, player );

@@ -43,6 +43,10 @@ namespace WarpItemControlLib {
 		[DefaultValue( 100 )]
 		public int ChaosStateHurtsFromWarpItems { get; set; } = 100;
 
+		[Range( 0, 60 * 60 * 60 )]
+		[DefaultValue( 10 * 60 )]
+		public int ChaosStateTickDurationFromWarp { get; set; } = 10 * 60;
+
 
 		[DefaultValue( true )]
 		public bool WarpWarmupInterruptedByMovement { get; set; } = true;
