@@ -26,12 +26,12 @@ namespace WarpItemControlLib {
 		public bool WarpItemsBlocked { get; set; } = false;
 
 
-		[Range( 0, 60 * 60 )]
+		[Range( 0f, 60f * 60f )]
 		[DefaultValue( (int)( 3f * 60f ) )]
 		[CustomModConfigItem( typeof( MyFloatInputElement ) )]
 		public int WarpItemBaseWarmupTickDuration { get; set; } = (int)( 3f * 60f );
 
-		[Range( 0, 60 * 60 )]
+		[Range( 0f, 60f * 60f )]
 		[DefaultValue( (int)( 2.5f * 60f ) )]
 		[CustomModConfigItem( typeof( MyFloatInputElement ) )]
 		public int RecallPotionBaseWarmupTickDuration { get; set; } = (int)( 2.5f * 60f );
