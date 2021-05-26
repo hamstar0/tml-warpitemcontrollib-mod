@@ -5,11 +5,6 @@ using HamstarHelpers.Classes.UI.ModConfig;
 
 
 namespace WarpItemControlLib {
-	class MyFloatInputElement : FloatInputElement { }
-
-
-
-
 	public partial class WICLibConfig : ModConfig {
 		public static WICLibConfig Instance { get; internal set; }
 
@@ -26,14 +21,12 @@ namespace WarpItemControlLib {
 		public bool WarpItemsBlocked { get; set; } = false;
 
 
-		[Range( 0f, 60f * 60f )]
+		[Range( 0, 60 * 60 )]
 		[DefaultValue( (int)( 3f * 60f ) )]
-		[CustomModConfigItem( typeof( MyFloatInputElement ) )]
 		public int WarpItemBaseWarmupTickDuration { get; set; } = (int)( 3f * 60f );
 
-		[Range( 0f, 60f * 60f )]
+		[Range( 0, 60 * 60 )]
 		[DefaultValue( (int)( 2.5f * 60f ) )]
-		[CustomModConfigItem( typeof( MyFloatInputElement ) )]
 		public int RecallPotionBaseWarmupTickDuration { get; set; } = (int)( 2.5f * 60f );
 
 
