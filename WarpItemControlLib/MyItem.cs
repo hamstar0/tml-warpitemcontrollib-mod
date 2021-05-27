@@ -1,22 +1,26 @@
 ﻿using System;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
-using Terraria.ModLoader;
 using Terraria.DataStructures;
+using Terraria.ModLoader;
+using Terraria.ModLoader.Config;
 using HamstarHelpers.Helpers.Debug;
 using HamstarHelpers.Helpers.Players;
 
 
 namespace WarpItemControlLib {
-	class WICItem : GlobalItem {
+	class WICLibItem : GlobalItem {
 		public override bool CanUseItem( Item item, Player player ) {
 			var config = WICLibConfig.Instance;
+			var warpItems = config.Get<List<ItemDefinition>>( nameof(config.WarpItems) );
 
-			switch( item.type ) {
-			case ItemID.MagicMirror:
-			case ItemID.CellPhone:
-			case ItemID.IceMirror:
-			case ItemID.RecallPotion:
+			//switch( item.type ) {
+			//case ItemID.MagicMirror:
+			//case ItemID.CellPhone:
+			//case ItemID.IceMirror:
+			//case ItemID.RecallPotion:
+			if( warpItems.Contains(new ItemDefinition(item.type)) ) {
 				if( config.Get<bool>( nameof(config.WarpItemsBlocked) ) ) {
 					if( player.whoAmI == Main.myPlayer ) {
 						WICLibMod.ShowAlert( "Warp items disabled by config." );
@@ -39,21 +43,22 @@ namespace WarpItemControlLib {
 					}
 					return false;
 				}
-
-				break;
 			}
+
 			return base.CanUseItem( item, player );
 		}
 
 
 		public override bool UseItem( Item item, Player player ) {
 			var config = WICLibConfig.Instance;
+			var warpItems = config.Get<List<ItemDefinition>>( nameof( config.WarpItems ) );
 
-			switch( item.type ) {
-			case ItemID.MagicMirror:
-			case ItemID.CellPhone:
-			case ItemID.IceMirror:
-			case ItemID.RecallPotion:
+			//switch( item.type ) {
+			//case ItemID.MagicMirror:
+			//case ItemID.CellPhone:
+			//case ItemID.IceMirror:
+			//case ItemID.RecallPotion:
+			if( warpItems.Contains( new ItemDefinition( item.type ) ) ) {
 				if( player.HasBuff( BuffID.ChaosState ) ) {
 					int hurtAmt = config.Get<int>( nameof(config.ChaosStateHurtsFromWarpItems) );
 
@@ -72,8 +77,8 @@ namespace WarpItemControlLib {
 				if( duration > 0 ) {
 					player.AddBuff( BuffID.ChaosState, duration );
 				}
-				break;
 			}
+
 			return base.UseItem( item, player );
 		}
 	}

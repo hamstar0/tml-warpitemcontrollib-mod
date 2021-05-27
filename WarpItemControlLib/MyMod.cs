@@ -5,7 +5,7 @@ using HamstarHelpers.Services.Timers;
 
 
 namespace WarpItemControlLib {
-	public class WICLibMod : Mod {
+	public partial class WICLibMod : Mod {
 		public static string GithubUserName => "hamstar0";
 		public static string GithubProjectName => "tml-warpitemcontrollib-mod";
 
@@ -29,13 +29,8 @@ namespace WarpItemControlLib {
 
 		////////////////
 
-		public WICLibMod() {
-			WICLibMod.Instance = this;
-		}
-
-		////////////////
-
 		public override void Load() {
+			WICLibMod.Instance = this;
 			WICLibConfig.Instance = ModContent.GetInstance<WICLibConfig>();
 		}
 

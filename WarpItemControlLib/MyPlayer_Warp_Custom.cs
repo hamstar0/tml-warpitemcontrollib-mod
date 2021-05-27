@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.ModLoader.Config;
 using HamstarHelpers.Helpers.Debug;
 
 
@@ -32,11 +34,15 @@ namespace WarpItemControlLib {
 		////
 
 		private bool RunCustomWarpForItem( Item anyItem ) {
-			switch( anyItem.type ) {
-			case ItemID.MagicMirror:
-			case ItemID.CellPhone:
-			case ItemID.IceMirror:
-			case ItemID.RecallPotion:
+			var config = WICLibConfig.Instance;
+			var warpItems = config.Get<List<ItemDefinition>>( nameof( config.WarpItems ) );
+
+			//switch( item.type ) {
+			//case ItemID.MagicMirror:
+			//case ItemID.CellPhone:
+			//case ItemID.IceMirror:
+			//case ItemID.RecallPotion:
+			if( warpItems.Contains( new ItemDefinition(anyItem.type) ) ) {
 				/*var pIT = player.itemTime;
 				var pIA = player.itemAnimation;
 				var iT = useItem.useTime;*/
@@ -45,7 +51,7 @@ namespace WarpItemControlLib {
 					+" - pIT2:"+player.itemTime+", pIA2:"+player.itemAnimation+" ("+player.itemAnimationMax+"), iT2:"+useItem.useTime;
 				LogHelpers.Log( dbg );
 				Main.NewText( dbg );*/
-			default:
+			} else {
 				return false;
 			}
 		}

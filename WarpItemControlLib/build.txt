@@ -1,6 +1,6 @@
 displayName = Warp Item Control Lib
 author = hamstar
-version = 1.2.0.2
+version = 1.2.1
 modReferences = HamstarHelpers@5.9.5
 buildIgnore = *.csproj, *.user, *.bat, obj\*, bin\*, .vs\*, .git\*
 homepage = https://forums.terraria.org/index.php?threads/warp-item-control-lib-customize-and-control-behavior-of-magic-mirrors-recall-potions-etc.100674/

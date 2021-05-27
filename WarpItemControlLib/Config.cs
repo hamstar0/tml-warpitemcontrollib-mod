@@ -1,7 +1,8 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Collections.Generic;
+using Terraria.ID;
 using Terraria.ModLoader.Config;
-using HamstarHelpers.Classes.UI.ModConfig;
 
 
 namespace WarpItemControlLib {
@@ -43,5 +44,15 @@ namespace WarpItemControlLib {
 
 		[DefaultValue( true )]
 		public bool WarpWarmupInterruptedByMovement { get; set; } = true;
+
+
+		////
+
+		public List<ItemDefinition> WarpItems = new List<ItemDefinition> {
+			new ItemDefinition(ItemID.MagicMirror),
+			new ItemDefinition(ItemID.CellPhone),
+			new ItemDefinition(ItemID.IceMirror),
+			new ItemDefinition(ItemID.RecallPotion)
+		};
 	}
 }
